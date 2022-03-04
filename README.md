@@ -1,3 +1,3 @@
 # ActiveBox
 
-Website created without using inline-block and float
+The site was created without the use of flex-box and grid
