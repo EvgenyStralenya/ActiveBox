@@ -115,9 +115,8 @@ body {
 
 .main {
 	min-height: 100vh;
-	max-height: 700px;
 	overflow: hidden;
-	background: linear-gradient(to bottom, rgba(43,46,74,0.95) 0%,rgba(43,46,74,0.95) 100%), url(../../img/bg-main.jpg) 0 0/cover no-repeat;
+	background: linear-gradient(to bottom, rgba(43,46,74,0.95) 0%,rgba(43,46,74,0.95) 100%), url(../img/bg-main.jpg) 0 0/cover no-repeat;
 	
 	.header {
 		min-height: 10vh;
@@ -292,7 +291,6 @@ body {
 		}
 
 		.main__subtitle {
-			font-size: 22px;
 			@include adaptiv-font(22, 12);
 			line-height: 1.5;
 			font-weight: 400;
@@ -410,13 +408,12 @@ body {
 	
 			.overlay__inner {
 				width: 100%;
-				padding: 0 15px;
+				padding: 15px;			
 				box-sizing: border-box;
 				position: absolute;
 				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			
+				transform: translateY(-50%);
+							
 				.overlay__title {
 					font-weight: 700;
 					text-transform: uppercase;
@@ -516,110 +513,158 @@ body {
 .reviews {
 	background-color: #53354a;
 	overflow: hidden;
+	
+	input[type="radio"] {
+		display: none;
+	}
+
+	#radio-button_01:checked ~ .reviews__slider .reviews__slide_01 {
+		margin-left: 0;
+	}
+	#radio-button_02:checked ~ .reviews__slider .reviews__slide_01 {
+		margin-left: -20%;
+	}
+	#radio-button_03:checked ~ .reviews__slider .reviews__slide_01 {
+		margin-left: -40%;
+	}
+	#radio-button_04:checked ~ .reviews__slider .reviews__slide_01 {
+		margin-left: -60%;
+	}
+	#radio-button_05:checked ~ .reviews__slider .reviews__slide_01 {
+		margin-left: -80%;
+	}
+	
+
+	#radio-button_01:checked ~ .reviews__slider .reviews__slide_01 .client__image img,
+	#radio-button_02:checked ~ .reviews__slider .reviews__slide_02 .client__image img,
+	#radio-button_03:checked ~ .reviews__slider .reviews__slide_03 .client__image img,
+	#radio-button_04:checked ~ .reviews__slider .reviews__slide_04 .client__image img,
+	#radio-button_05:checked ~ .reviews__slider .reviews__slide_05 .client__image img {
+		top: 0;
+	}
+
+	#radio-button_01:checked ~ .reviews__slider .reviews__slide_01 .client__text,
+	#radio-button_02:checked ~ .reviews__slider .reviews__slide_02 .client__text,
+	#radio-button_03:checked ~ .reviews__slider .reviews__slide_03 .client__text,
+	#radio-button_04:checked ~ .reviews__slider .reviews__slide_04 .client__text,
+	#radio-button_05:checked ~ .reviews__slider .reviews__slide_05 .client__text {
+		z-index: 0;
+		right: 0;
+	}
+
+	#radio-button_01:checked ~ .container .reviews__control .reviews__control_01,
+	#radio-button_02:checked ~ .container .reviews__control .reviews__control_02,
+	#radio-button_03:checked ~ .container .reviews__control .reviews__control_03,
+	#radio-button_04:checked ~ .container .reviews__control .reviews__control_04,
+	#radio-button_05:checked ~ .container .reviews__control .reviews__control_05 {
+		opacity: 1;
+	}
 
 	.reviews__slider {
-		padding-top: calc(5/19*100%);
-  		position: relative;
+		width: 100% * 5;
+		display: flex;
 
-			input[type="radio"] {
-				display: none;
-			}
-
-			#radio-button_01:checked ~ .reviews__slide_01 .client__image,
-			#radio-button_02:checked ~ .reviews__slide_02 .client__image,
-			#radio-button_03:checked ~ .reviews__slide_03 .client__image,
-			#radio-button_04:checked ~ .reviews__slide_04 .client__image,
-			#radio-button_05:checked ~ .reviews__slide_05 .client__image {
-				bottom: 0;
-			}
-
-			#radio-button_01:checked ~ .reviews__slide_01 .client__text,
-			#radio-button_02:checked ~ .reviews__slide_02 .client__text,
-			#radio-button_03:checked ~ .reviews__slide_03 .client__text,
-			#radio-button_04:checked ~ .reviews__slide_04 .client__text,
-			#radio-button_05:checked ~ .reviews__slide_05 .client__text {
-				top: 0;
-			}
-
-			#radio-button_01:checked ~ .reviews__control .reviews__control_01,
-			#radio-button_02:checked ~ .reviews__control .reviews__control_02,
-			#radio-button_03:checked ~ .reviews__control .reviews__control_03,
-			#radio-button_04:checked ~ .reviews__control .reviews__control_04,
-			#radio-button_05:checked ~ .reviews__control .reviews__control_05 {
-				opacity: 1;
-			}
-
-
-			.client {
-				width: 100%;
-				height: 100%;
+		.client {
+			width: (100%/5);
+			position: relative;
+			
+			.client__image {
 				position: absolute;
-				top: 0;
-				left: 0;
-	
-				&::after {
-					content: '';
-					display: block;
-					clear: both;
-				}
-		
-				.client__image {
-					height: 100%;
-					float: left;
-					width: 50%;
-					position: relative;
-					bottom: 100%;
-					transition-duration: 0.5s;
-
-					img {
-						display: block;
-						width: 100%;
-						height: 100%;
-						object-fit: cover;
-					}
-				}
-
-				.container {
-					height: 100%;
-					&::after {
-						content: '';
-						display: block;
-						clear: both;
-					}
-
-					.client__text {
-						float: right;
-						width: 50%;
-						color: #ffffff;
-						padding: 5px 0 5px 7.2%;
-						box-sizing: border-box;
-						position: relative;
-						top: 100%;
-						transition-duration: 0.5s;
+				left:0;
+				right:0;
+				top:0;
+				bottom: 0;
+				width: 50%;
+				z-index: 10;
 				
-						.client__reviews {
-							margin: 0 0 10%;
-							font-family: 'Cardo', serif;
-							@include adaptiv-font(36, 16);
-							line-height: 1.2;
-							font-weight: 400;
-							font-style: italic;
-						}
-					
-						.client__signature {
-							@include adaptiv-font(13, 6);
-							line-height: 1.6;
-							font-weight: 700;
-							text-transform: uppercase;
-						}
+				img {				
+					display: block;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center;
+					position: relative;
+					top: 100%;
+					transition: top 0.5s ease;
+
+					@media screen and (max-width: 600px) {
+						top: -100%;
+					}
+				}
+
+				@media screen and (max-width: 600px) {
+					width: 100%;
+					height: 350px;
+					overflow: hidden;
+					position: static;
+				}
+
+				@media screen and (max-width: 400px) {
+					height: 250px;
+				}
+			}
+	
+			.container {
+	
+				.client__text {
+					float: right;
+					width: 50%;
+					color: #ffffff;
+					padding: 9% 0 11% 7%;
+					box-sizing: border-box;
+					position: relative;
+					right: 50%;
+					transition-duration: 0.5s;
+					transition-delay: 0.1s;
+					z-index: -1;
+			
+					.client__reviews {
+						margin: 0 0 7%;
+						font-family: 'Cardo', serif;
+						@include adaptiv-font(36, 16);
+						line-height: 1.2;
+						font-weight: 400;
+						font-style: italic;
+					}
+				
+					.client__signature {
+						display: block;
+						@include adaptiv-font(13, 6);
+						line-height: 1.6;
+						font-weight: 700;
+						text-transform: uppercase;
+					}
+
+					@media screen and (max-width: 600px) {
+						width: 100%;
+						float: none;
+						padding: 5% 5% 16%;
+						right: 100%;
+						transition-delay: 0s;
 					}
 				}
 			}
+		}
+	}
+	
+	.container {
 
-		.reviews__control {
-			position: absolute;
-			top: 10px;
-			right: 10px;
+		.control__wrap {
+			float: right;
+			width: 50%;
+			position: relative;
+
+			.reviews__control {
+				width: 100%;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				margin-bottom: 10%;
+				padding-left: 7%;
+				box-sizing: border-box;
+				text-align: center;
+			}
+
 			label {
 				display: inline-block;
 				width: 12px;
@@ -631,29 +676,23 @@ body {
 				transition-duration: 0.3s;
 				cursor: pointer;
 
+				&:last-child {
+					margin-right: 0;
+				}
+
 				&:hover {
 					opacity: 0.6;
 				}
 			}
-		}
-	}
 
-	@media screen and (max-width: 1200px) {
-		.reviews__slider {
-		  padding-top: 0;
-		  height: 316px;
-		}
-	}
+			@media screen and (max-width: 600px) {
+				width: 100%;
 
-	@media screen and (max-width: 900px) {
-		.reviews__slider {
-		  height: 250px;
-		}
-	}
-
-	@media screen and (max-width: 600px) {
-		.reviews__slider {
-		  height: 200px;
+				.reviews__control {
+					padding-left: 0;
+					margin-bottom: 7%;
+				}
+			}
 		}
 	}
 }

@@ -386,7 +386,6 @@ body {
   text-transform: uppercase;
   color: #ffffff;
   -webkit-transition-duration: 0.3s;
-       -o-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
 .button:hover {
@@ -422,7 +421,6 @@ body {
   width: 20px;
   height: 20px;
   -webkit-transition-duration: 0.3s;
-       -o-transition-duration: 0.3s;
           transition-duration: 0.3s;
   position: absolute;
   top: 0;
@@ -439,11 +437,9 @@ body {
 
 .main {
   min-height: 100vh;
-  max-height: 700px;
   overflow: hidden;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 46, 74, 0.95)), to(rgba(43, 46, 74, 0.95))), url(../../img/bg-main.jpg) 0 0/cover no-repeat;
-  background: -o-linear-gradient(top, rgba(43, 46, 74, 0.95) 0%, rgba(43, 46, 74, 0.95) 100%), url(../../img/bg-main.jpg) 0 0/cover no-repeat;
-  background: linear-gradient(to bottom, rgba(43, 46, 74, 0.95) 0%, rgba(43, 46, 74, 0.95) 100%), url(../../img/bg-main.jpg) 0 0/cover no-repeat;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 46, 74, 0.95)), to(rgba(43, 46, 74, 0.95))), url(../img/bg-main.jpg) 0 0/cover no-repeat;
+  background: linear-gradient(to bottom, rgba(43, 46, 74, 0.95) 0%, rgba(43, 46, 74, 0.95) 100%), url(../img/bg-main.jpg) 0 0/cover no-repeat;
 }
 .main .header {
   min-height: 10vh;
@@ -460,7 +456,6 @@ body {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 .main .header .header__logo a {
@@ -481,7 +476,6 @@ body {
   right: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 .main .header .header__menu #menu__toggle {
@@ -489,19 +483,16 @@ body {
 }
 .main .header .header__menu #menu__toggle:checked ~ .menu__button > span {
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 .main .header .header__menu #menu__toggle:checked ~ .menu__button > span::before {
   top: 0;
   -webkit-transform: rotate(0);
-      -ms-transform: rotate(0);
           transform: rotate(0);
 }
 .main .header .header__menu #menu__toggle:checked ~ .menu__button > span::after {
   top: 0;
   -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 .main .header .header__menu #menu__toggle:checked ~ .menu__list {
@@ -525,13 +516,11 @@ body {
   height: 2px;
   background-color: #616161;
   -webkit-transition-duration: 0.25s;
-       -o-transition-duration: 0.25s;
           transition-duration: 0.25s;
 }
 .main .header .header__menu .menu__button span {
   top: 50%;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 .main .header .header__menu .menu__button span::before {
@@ -579,7 +568,6 @@ body {
     border-radius: 5px;
     overflow: hidden;
     -webkit-transition-duration: 0.3s;
-         -o-transition-duration: 0.3s;
             transition-duration: 0.3s;
   }
   .main .header .header__menu .menu__list li {
@@ -620,7 +608,6 @@ body {
   }
 }
 .main .main__inner .main__subtitle {
-  font-size: 22px;
   font-size: calc(12px + 10 * ((100vw - 280px) / 920));
   line-height: 1.5;
   font-weight: 400;
@@ -727,7 +714,6 @@ body {
   color: #ffffff;
   text-align: center;
   -webkit-transition-duration: 0.5s;
-       -o-transition-duration: 0.5s;
           transition-duration: 0.5s;
 }
 @media screen and (min-width: 1200px) {
@@ -737,15 +723,13 @@ body {
 }
 .works .work__inner .work__overlay .overlay__inner {
   width: 100%;
-  padding: 0 15px;
+  padding: 15px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: absolute;
   top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 .works .work__inner .work__overlay .overlay__inner .overlay__title {
   font-weight: 700;
@@ -829,55 +813,64 @@ body {
   background-color: #53354a;
   overflow: hidden;
 }
-.reviews .reviews__slider {
-  padding-top: calc(5/19*100%);
-  position: relative;
-}
-.reviews .reviews__slider input[type=radio] {
+.reviews input[type=radio] {
   display: none;
 }
-.reviews .reviews__slider #radio-button_01:checked ~ .reviews__slide_01 .client__image,
-.reviews .reviews__slider #radio-button_02:checked ~ .reviews__slide_02 .client__image,
-.reviews .reviews__slider #radio-button_03:checked ~ .reviews__slide_03 .client__image,
-.reviews .reviews__slider #radio-button_04:checked ~ .reviews__slide_04 .client__image,
-.reviews .reviews__slider #radio-button_05:checked ~ .reviews__slide_05 .client__image {
-  bottom: 0;
+.reviews #radio-button_01:checked ~ .reviews__slider .reviews__slide_01 {
+  margin-left: 0;
 }
-.reviews .reviews__slider #radio-button_01:checked ~ .reviews__slide_01 .client__text,
-.reviews .reviews__slider #radio-button_02:checked ~ .reviews__slide_02 .client__text,
-.reviews .reviews__slider #radio-button_03:checked ~ .reviews__slide_03 .client__text,
-.reviews .reviews__slider #radio-button_04:checked ~ .reviews__slide_04 .client__text,
-.reviews .reviews__slider #radio-button_05:checked ~ .reviews__slide_05 .client__text {
+.reviews #radio-button_02:checked ~ .reviews__slider .reviews__slide_01 {
+  margin-left: -20%;
+}
+.reviews #radio-button_03:checked ~ .reviews__slider .reviews__slide_01 {
+  margin-left: -40%;
+}
+.reviews #radio-button_04:checked ~ .reviews__slider .reviews__slide_01 {
+  margin-left: -60%;
+}
+.reviews #radio-button_05:checked ~ .reviews__slider .reviews__slide_01 {
+  margin-left: -80%;
+}
+.reviews #radio-button_01:checked ~ .reviews__slider .reviews__slide_01 .client__image img,
+.reviews #radio-button_02:checked ~ .reviews__slider .reviews__slide_02 .client__image img,
+.reviews #radio-button_03:checked ~ .reviews__slider .reviews__slide_03 .client__image img,
+.reviews #radio-button_04:checked ~ .reviews__slider .reviews__slide_04 .client__image img,
+.reviews #radio-button_05:checked ~ .reviews__slider .reviews__slide_05 .client__image img {
   top: 0;
 }
-.reviews .reviews__slider #radio-button_01:checked ~ .reviews__control .reviews__control_01,
-.reviews .reviews__slider #radio-button_02:checked ~ .reviews__control .reviews__control_02,
-.reviews .reviews__slider #radio-button_03:checked ~ .reviews__control .reviews__control_03,
-.reviews .reviews__slider #radio-button_04:checked ~ .reviews__control .reviews__control_04,
-.reviews .reviews__slider #radio-button_05:checked ~ .reviews__control .reviews__control_05 {
+.reviews #radio-button_01:checked ~ .reviews__slider .reviews__slide_01 .client__text,
+.reviews #radio-button_02:checked ~ .reviews__slider .reviews__slide_02 .client__text,
+.reviews #radio-button_03:checked ~ .reviews__slider .reviews__slide_03 .client__text,
+.reviews #radio-button_04:checked ~ .reviews__slider .reviews__slide_04 .client__text,
+.reviews #radio-button_05:checked ~ .reviews__slider .reviews__slide_05 .client__text {
+  z-index: 0;
+  right: 0;
+}
+.reviews #radio-button_01:checked ~ .container .reviews__control .reviews__control_01,
+.reviews #radio-button_02:checked ~ .container .reviews__control .reviews__control_02,
+.reviews #radio-button_03:checked ~ .container .reviews__control .reviews__control_03,
+.reviews #radio-button_04:checked ~ .container .reviews__control .reviews__control_04,
+.reviews #radio-button_05:checked ~ .container .reviews__control .reviews__control_05 {
   opacity: 1;
 }
-.reviews .reviews__slider .client {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+.reviews .reviews__slider {
+  width: 500%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-.reviews .reviews__slider .client::after {
-  content: "";
-  display: block;
-  clear: both;
+.reviews .reviews__slider .client {
+  width: 20%;
+  position: relative;
 }
 .reviews .reviews__slider .client .client__image {
-  height: 100%;
-  float: left;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   width: 50%;
-  position: relative;
-  bottom: 100%;
-  -webkit-transition-duration: 0.5s;
-       -o-transition-duration: 0.5s;
-          transition-duration: 0.5s;
+  z-index: 10;
 }
 .reviews .reviews__slider .client .client__image img {
   display: block;
@@ -885,30 +878,48 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  position: relative;
+  top: 100%;
+  -webkit-transition: top 0.5s ease;
+  transition: top 0.5s ease;
 }
-.reviews .reviews__slider .client .container {
-  height: 100%;
+@media screen and (max-width: 600px) {
+  .reviews .reviews__slider .client .client__image img {
+    top: -100%;
+  }
 }
-.reviews .reviews__slider .client .container::after {
-  content: "";
-  display: block;
-  clear: both;
+@media screen and (max-width: 600px) {
+  .reviews .reviews__slider .client .client__image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    position: static;
+  }
+}
+@media screen and (max-width: 400px) {
+  .reviews .reviews__slider .client .client__image {
+    height: 250px;
+  }
 }
 .reviews .reviews__slider .client .container .client__text {
   float: right;
   width: 50%;
   color: #ffffff;
-  padding: 5px 0 5px 7.2%;
+  padding: 9% 0 11% 7%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: relative;
-  top: 100%;
+  right: 50%;
   -webkit-transition-duration: 0.5s;
-       -o-transition-duration: 0.5s;
           transition-duration: 0.5s;
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+  z-index: -1;
 }
 .reviews .reviews__slider .client .container .client__text .client__reviews {
-  margin: 0 0 10%;
+  margin: 0 0 7%;
   font-family: "Cardo", serif;
   font-size: calc(16px + 20 * ((100vw - 280px) / 920));
   line-height: 1.2;
@@ -921,6 +932,7 @@ body {
   }
 }
 .reviews .reviews__slider .client .container .client__text .client__signature {
+  display: block;
   font-size: calc(6px + 7 * ((100vw - 280px) / 920));
   line-height: 1.6;
   font-weight: 700;
@@ -931,12 +943,33 @@ body {
     font-size: 13px;
   }
 }
-.reviews .reviews__slider .reviews__control {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+@media screen and (max-width: 600px) {
+  .reviews .reviews__slider .client .container .client__text {
+    width: 100%;
+    float: none;
+    padding: 5% 5% 16%;
+    right: 100%;
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+  }
 }
-.reviews .reviews__slider .reviews__control label {
+.reviews .container .control__wrap {
+  float: right;
+  width: 50%;
+  position: relative;
+}
+.reviews .container .control__wrap .reviews__control {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 10%;
+  padding-left: 7%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+}
+.reviews .container .control__wrap label {
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -945,27 +978,22 @@ body {
   margin-right: 5px;
   background-color: #fff;
   -webkit-transition-duration: 0.3s;
-       -o-transition-duration: 0.3s;
           transition-duration: 0.3s;
   cursor: pointer;
 }
-.reviews .reviews__slider .reviews__control label:hover {
+.reviews .container .control__wrap label:last-child {
+  margin-right: 0;
+}
+.reviews .container .control__wrap label:hover {
   opacity: 0.6;
 }
-@media screen and (max-width: 1200px) {
-  .reviews .reviews__slider {
-    padding-top: 0;
-    height: 316px;
-  }
-}
-@media screen and (max-width: 900px) {
-  .reviews .reviews__slider {
-    height: 250px;
-  }
-}
 @media screen and (max-width: 600px) {
-  .reviews .reviews__slider {
-    height: 200px;
+  .reviews .container .control__wrap {
+    width: 100%;
+  }
+  .reviews .container .control__wrap .reviews__control {
+    padding-left: 0;
+    margin-bottom: 7%;
   }
 }
 
